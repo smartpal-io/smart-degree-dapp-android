@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:paddingTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/section_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/step_scan_fragment_title"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/camera"/>
+
+        <io.rmiri.buttonloading.ButtonLoading
+            android:id="@+id/start_scan"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:BL_backgroundColor="@android:color/darker_gray"
+            app:BL_circleColor="@color/colorAccent"
+            app:BL_circleColorSecond="@color/colorAccent"
+            app:BL_enable="true"
+            app:BL_stateShow="normal"
+            app:BL_text="@string/action_scan"
+            app:BL_textColor="#FFFFFF"
+            app:BL_textSize="14sp" />
+
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
