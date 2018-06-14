@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nested_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".view.MainActivity"
+    tools:context=".view.activity.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <LinearLayout
@@ -20,14 +21,14 @@
             android:layout_height="90dp"
             android:padding="20dp"
             android:layout_marginTop="10dp"
-            app:sv_selectedTextColor="@color/colorAccent"
+            app:sv_selectedTextColor="@color/colorPrimary"
             app:sv_stepLineWidth="1dp"
             app:sv_stepPadding="4dp"
             app:sv_nextTextColor="@android:color/darker_gray"
-            app:sv_selectedCircleColor="@color/colorAccent"
-            app:sv_doneCircleColor="@color/colorAccent"
+            app:sv_selectedCircleColor="@color/colorPrimary"
+            app:sv_doneCircleColor="@color/colorPrimary"
             app:sv_nextStepLineColor="@android:color/darker_gray"
-            app:sv_doneStepLineColor="@color/colorAccent"
+            app:sv_doneStepLineColor="@color/colorPrimary"
             app:sv_selectedStepNumberColor="@android:color/white"
             app:sv_doneCircleRadius="17dp"
             app:sv_selectedCircleRadius="17dp"

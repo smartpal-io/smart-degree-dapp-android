@@ -1,4 +1,4 @@
-package com.degree.application.contract;
+package io.smartpal.smartdegree.contract;
 
 import org.web3j.abi.EventEncoder;
 import org.web3j.abi.TypeReference;
@@ -44,7 +44,6 @@ public class SmartDegree extends Contract {
 
     static {
         _addresses = new HashMap<>();
-        _addresses.put("5776", "0x44946dbfa6f05a09b707a3ff0d2a20d95c61cf0a");
     }
 
     protected SmartDegree(String contractAddress, Web3j web3j, Credentials credentials, BigInteger gasPrice, BigInteger gasLimit) {
@@ -59,9 +58,9 @@ public class SmartDegree extends Contract {
         final Event event = new Event("DegreeHashAdded", 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Bytes32>() {}, new TypeReference<Bytes32>() {}),
                 Arrays.<TypeReference<?>>asList());
-        List<Contract.EventValuesWithLog> valueList = extractEventParametersWithLog(event, transactionReceipt);
+        List<EventValuesWithLog> valueList = extractEventParametersWithLog(event, transactionReceipt);
         ArrayList<DegreeHashAddedEventResponse> responses = new ArrayList<DegreeHashAddedEventResponse>(valueList.size());
-        for (Contract.EventValuesWithLog eventValues : valueList) {
+        for (EventValuesWithLog eventValues : valueList) {
             DegreeHashAddedEventResponse typedResponse = new DegreeHashAddedEventResponse();
             typedResponse.log = eventValues.getLog();
             typedResponse.id = (byte[]) eventValues.getIndexedValues().get(0).getValue();
@@ -72,7 +71,7 @@ public class SmartDegree extends Contract {
     }
 
     public Observable<DegreeHashAddedEventResponse> degreeHashAddedEventObservable(DefaultBlockParameter startBlock, DefaultBlockParameter endBlock) {
-        final Event event = new Event("DegreeHashAdded", 
+        final Event event = new Event("DegreeHashAdded",
                 Arrays.<TypeReference<?>>asList(new TypeReference<Bytes32>() {}, new TypeReference<Bytes32>() {}),
                 Arrays.<TypeReference<?>>asList());
         EthFilter filter = new EthFilter(startBlock, endBlock, getContractAddress());
@@ -80,7 +79,7 @@ public class SmartDegree extends Contract {
         return web3j.ethLogObservable(filter).map(new Func1<Log, DegreeHashAddedEventResponse>() {
             @Override
             public DegreeHashAddedEventResponse call(Log log) {
-                Contract.EventValuesWithLog eventValues = extractEventParametersWithLog(event, log);
+                EventValuesWithLog eventValues = extractEventParametersWithLog(event, log);
                 DegreeHashAddedEventResponse typedResponse = new DegreeHashAddedEventResponse();
                 typedResponse.log = log;
                 typedResponse.id = (byte[]) eventValues.getIndexedValues().get(0).getValue();
@@ -91,12 +90,12 @@ public class SmartDegree extends Contract {
     }
 
     public List<WhitelistedAddressAddedEventResponse> getWhitelistedAddressAddedEvents(TransactionReceipt transactionReceipt) {
-        final Event event = new Event("WhitelistedAddressAdded", 
+        final Event event = new Event("WhitelistedAddressAdded",
                 Arrays.<TypeReference<?>>asList(),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}));
-        List<Contract.EventValuesWithLog> valueList = extractEventParametersWithLog(event, transactionReceipt);
+        List<EventValuesWithLog> valueList = extractEventParametersWithLog(event, transactionReceipt);
         ArrayList<WhitelistedAddressAddedEventResponse> responses = new ArrayList<WhitelistedAddressAddedEventResponse>(valueList.size());
-        for (Contract.EventValuesWithLog eventValues : valueList) {
+        for (EventValuesWithLog eventValues : valueList) {
             WhitelistedAddressAddedEventResponse typedResponse = new WhitelistedAddressAddedEventResponse();
             typedResponse.log = eventValues.getLog();
             typedResponse.addr = (String) eventValues.getNonIndexedValues().get(0).getValue();
@@ -106,7 +105,7 @@ public class SmartDegree extends Contract {
     }
 
     public Observable<WhitelistedAddressAddedEventResponse> whitelistedAddressAddedEventObservable(DefaultBlockParameter startBlock, DefaultBlockParameter endBlock) {
-        final Event event = new Event("WhitelistedAddressAdded", 
+        final Event event = new Event("WhitelistedAddressAdded",
                 Arrays.<TypeReference<?>>asList(),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}));
         EthFilter filter = new EthFilter(startBlock, endBlock, getContractAddress());
@@ -114,7 +113,7 @@ public class SmartDegree extends Contract {
         return web3j.ethLogObservable(filter).map(new Func1<Log, WhitelistedAddressAddedEventResponse>() {
             @Override
             public WhitelistedAddressAddedEventResponse call(Log log) {
-                Contract.EventValuesWithLog eventValues = extractEventParametersWithLog(event, log);
+                EventValuesWithLog eventValues = extractEventParametersWithLog(event, log);
                 WhitelistedAddressAddedEventResponse typedResponse = new WhitelistedAddressAddedEventResponse();
                 typedResponse.log = log;
                 typedResponse.addr = (String) eventValues.getNonIndexedValues().get(0).getValue();
@@ -124,12 +123,12 @@ public class SmartDegree extends Contract {
     }
 
     public List<WhitelistedAddressRemovedEventResponse> getWhitelistedAddressRemovedEvents(TransactionReceipt transactionReceipt) {
-        final Event event = new Event("WhitelistedAddressRemoved", 
+        final Event event = new Event("WhitelistedAddressRemoved",
                 Arrays.<TypeReference<?>>asList(),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}));
-        List<Contract.EventValuesWithLog> valueList = extractEventParametersWithLog(event, transactionReceipt);
+        List<EventValuesWithLog> valueList = extractEventParametersWithLog(event, transactionReceipt);
         ArrayList<WhitelistedAddressRemovedEventResponse> responses = new ArrayList<WhitelistedAddressRemovedEventResponse>(valueList.size());
-        for (Contract.EventValuesWithLog eventValues : valueList) {
+        for (EventValuesWithLog eventValues : valueList) {
             WhitelistedAddressRemovedEventResponse typedResponse = new WhitelistedAddressRemovedEventResponse();
             typedResponse.log = eventValues.getLog();
             typedResponse.addr = (String) eventValues.getNonIndexedValues().get(0).getValue();
@@ -139,7 +138,7 @@ public class SmartDegree extends Contract {
     }
 
     public Observable<WhitelistedAddressRemovedEventResponse> whitelistedAddressRemovedEventObservable(DefaultBlockParameter startBlock, DefaultBlockParameter endBlock) {
-        final Event event = new Event("WhitelistedAddressRemoved", 
+        final Event event = new Event("WhitelistedAddressRemoved",
                 Arrays.<TypeReference<?>>asList(),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}));
         EthFilter filter = new EthFilter(startBlock, endBlock, getContractAddress());
@@ -147,7 +146,7 @@ public class SmartDegree extends Contract {
         return web3j.ethLogObservable(filter).map(new Func1<Log, WhitelistedAddressRemovedEventResponse>() {
             @Override
             public WhitelistedAddressRemovedEventResponse call(Log log) {
-                Contract.EventValuesWithLog eventValues = extractEventParametersWithLog(event, log);
+                EventValuesWithLog eventValues = extractEventParametersWithLog(event, log);
                 WhitelistedAddressRemovedEventResponse typedResponse = new WhitelistedAddressRemovedEventResponse();
                 typedResponse.log = log;
                 typedResponse.addr = (String) eventValues.getNonIndexedValues().get(0).getValue();
@@ -157,12 +156,12 @@ public class SmartDegree extends Contract {
     }
 
     public List<OwnershipTransferredEventResponse> getOwnershipTransferredEvents(TransactionReceipt transactionReceipt) {
-        final Event event = new Event("OwnershipTransferred", 
+        final Event event = new Event("OwnershipTransferred",
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}, new TypeReference<Address>() {}),
                 Arrays.<TypeReference<?>>asList());
-        List<Contract.EventValuesWithLog> valueList = extractEventParametersWithLog(event, transactionReceipt);
+        List<EventValuesWithLog> valueList = extractEventParametersWithLog(event, transactionReceipt);
         ArrayList<OwnershipTransferredEventResponse> responses = new ArrayList<OwnershipTransferredEventResponse>(valueList.size());
-        for (Contract.EventValuesWithLog eventValues : valueList) {
+        for (EventValuesWithLog eventValues : valueList) {
             OwnershipTransferredEventResponse typedResponse = new OwnershipTransferredEventResponse();
             typedResponse.log = eventValues.getLog();
             typedResponse.previousOwner = (String) eventValues.getIndexedValues().get(0).getValue();
@@ -173,7 +172,7 @@ public class SmartDegree extends Contract {
     }
 
     public Observable<OwnershipTransferredEventResponse> ownershipTransferredEventObservable(DefaultBlockParameter startBlock, DefaultBlockParameter endBlock) {
-        final Event event = new Event("OwnershipTransferred", 
+        final Event event = new Event("OwnershipTransferred",
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}, new TypeReference<Address>() {}),
                 Arrays.<TypeReference<?>>asList());
         EthFilter filter = new EthFilter(startBlock, endBlock, getContractAddress());
@@ -181,7 +180,7 @@ public class SmartDegree extends Contract {
         return web3j.ethLogObservable(filter).map(new Func1<Log, OwnershipTransferredEventResponse>() {
             @Override
             public OwnershipTransferredEventResponse call(Log log) {
-                Contract.EventValuesWithLog eventValues = extractEventParametersWithLog(event, log);
+                EventValuesWithLog eventValues = extractEventParametersWithLog(event, log);
                 OwnershipTransferredEventResponse typedResponse = new OwnershipTransferredEventResponse();
                 typedResponse.log = log;
                 typedResponse.previousOwner = (String) eventValues.getIndexedValues().get(0).getValue();
@@ -193,56 +192,56 @@ public class SmartDegree extends Contract {
 
     public RemoteCall<TransactionReceipt> removeAddressesFromWhitelist(List<String> addrs) {
         final Function function = new Function(
-                "removeAddressesFromWhitelist", 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.DynamicArray<org.web3j.abi.datatypes.Address>(
-                        org.web3j.abi.Utils.typeMap(addrs, org.web3j.abi.datatypes.Address.class))), 
+                "removeAddressesFromWhitelist",
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.DynamicArray<Address>(
+                        org.web3j.abi.Utils.typeMap(addrs, Address.class))),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<TransactionReceipt> removeAddressFromWhitelist(String addr) {
         final Function function = new Function(
-                "removeAddressFromWhitelist", 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(addr)), 
+                "removeAddressFromWhitelist",
+                Arrays.<Type>asList(new Address(addr)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<TransactionReceipt> addAddressToWhitelist(String addr) {
         final Function function = new Function(
-                "addAddressToWhitelist", 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(addr)), 
+                "addAddressToWhitelist",
+                Arrays.<Type>asList(new Address(addr)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<String> owner() {
-        final Function function = new Function("owner", 
-                Arrays.<Type>asList(), 
+        final Function function = new Function("owner",
+                Arrays.<Type>asList(),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}));
         return executeRemoteCallSingleValueReturn(function, String.class);
     }
 
     public RemoteCall<Boolean> whitelist(String param0) {
-        final Function function = new Function("whitelist", 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(param0)), 
+        final Function function = new Function("whitelist",
+                Arrays.<Type>asList(new Address(param0)),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Bool>() {}));
         return executeRemoteCallSingleValueReturn(function, Boolean.class);
     }
 
     public RemoteCall<TransactionReceipt> addAddressesToWhitelist(List<String> addrs) {
         final Function function = new Function(
-                "addAddressesToWhitelist", 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.DynamicArray<org.web3j.abi.datatypes.Address>(
-                        org.web3j.abi.Utils.typeMap(addrs, org.web3j.abi.datatypes.Address.class))), 
+                "addAddressesToWhitelist",
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.DynamicArray<Address>(
+                        org.web3j.abi.Utils.typeMap(addrs, Address.class))),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<TransactionReceipt> transferOwnership(String newOwner) {
         final Function function = new Function(
-                "transferOwnership", 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(newOwner)), 
+                "transferOwnership",
+                Arrays.<Type>asList(new Address(newOwner)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
@@ -257,32 +256,32 @@ public class SmartDegree extends Contract {
 
     public RemoteCall<TransactionReceipt> registerDelegate(String delegate) {
         final Function function = new Function(
-                "registerDelegate", 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(delegate)), 
+                "registerDelegate",
+                Arrays.<Type>asList(new Address(delegate)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<TransactionReceipt> addDegreeHash(byte[] id, byte[] hash) {
         final Function function = new Function(
-                "addDegreeHash", 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Bytes32(id), 
-                new org.web3j.abi.datatypes.generated.Bytes32(hash)), 
+                "addDegreeHash",
+                Arrays.<Type>asList(new Bytes32(id),
+                new Bytes32(hash)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<byte[]> getHash(byte[] id) {
-        final Function function = new Function("getHash", 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Bytes32(id)), 
+        final Function function = new Function("getHash",
+                Arrays.<Type>asList(new Bytes32(id)),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Bytes32>() {}));
         return executeRemoteCallSingleValueReturn(function, byte[].class);
     }
 
     public RemoteCall<Boolean> verify(byte[] id, byte[] hash) {
-        final Function function = new Function("verify", 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Bytes32(id), 
-                new org.web3j.abi.datatypes.generated.Bytes32(hash)), 
+        final Function function = new Function("verify",
+                Arrays.<Type>asList(new Bytes32(id),
+                new Bytes32(hash)),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Bool>() {}));
         return executeRemoteCallSingleValueReturn(function, Boolean.class);
     }

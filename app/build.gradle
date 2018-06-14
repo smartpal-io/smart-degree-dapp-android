@@ -1,17 +1,25 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion rootProject.compileSdkVersion
+    dataBinding {
+        enabled = true
+    }
+    kapt {
+        generateStubs = true
+    }
     defaultConfig {
-        applicationId "com.degree.application"
-        minSdkVersion 17
-        targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        applicationId "io.smartpal.smartdegree"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "ETH_NETWORK_URL", "$ETH_NETWORK_URL"
-
+        versionCode 1
+        versionName "0.1.1"
+        buildConfigField "String", "ETH_NETWORK_URL", "\"http://127.0.0.1:8545\""
     }
     buildTypes {
         release {
@@ -26,13 +34,27 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:design:27.1.1'
-    implementation 'org.web3j:core:3.3.1-android'
-    implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.shuhart.stepview:stepview:1.2.7'
-    implementation 'com.github.rasoulmiri:buttonloading:v1.0.8'
-    implementation 'com.tarun0.zxing-standalone:zxing-standalone:1.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation "android.arch.lifecycle:extensions:$rootProject.lifecycleVersion"
+    implementation "android.arch.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
+    implementation "android.arch.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
+    implementation "android.arch.work:work-runtime-ktx:$rootProject.workVersion"
+    implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.kotlinVersion"
+
+    implementation "com.shuhart.stepview:stepview:$rootProject.stepViewVersion"
+    implementation "com.github.d-max:spots-dialog:$rootProject.spotsDialogVersion"
+    implementation "org.web3j:core:$rootProject.web3jVersion"
+    implementation "com.tarun0.zxing-standalone:zxing-standalone:$rootProject.zxingVersion"
+    implementation "com.android.support:multidex:$rootProject.multidexVersion"
+
+    // Testing dependencies
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+    testImplementation "junit:junit:$rootProject.junitVersion"
 }
