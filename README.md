@@ -17,7 +17,9 @@ Android SDK installed
 
 This android application call a ethereum smart contract to verify degree's hash 
 
-![ANDROID_APP](img/Screenshot_android_app_1.png) ![ANDROID_APP_2](img/Screenshot_android_app_2.png)
+![ANDROID_APP](img/Screenshot_android_app_1.jpg) ![ANDROID_APP_2](img/Screenshot_android_app_2.jpg)
+
+![ANDROID_APP](img/Screenshot_android_app_3.jpg) ![ANDROID_APP_2](img/Screenshot_android_app_4.jpg)
 
 ```
 web3j truffle generate [LOCATION]/smart-degree/build/contracts/SmartDegree.json -o [LOCATION]/smart-degree-dapp-andrpod/app/src/main/java/ -p com.degree.application.contract

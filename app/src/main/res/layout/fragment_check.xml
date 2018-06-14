@@ -1,121 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        tools:context=".view.activity.MainActivity">
 
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/degreeId"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/prompt_degree_id"
-                android:inputType="number"
-                android:maxLines="1"
-                android:singleLine="true"/>
+                android:layout_height="wrap_content">
 
-        </android.support.design.widget.TextInputLayout>
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/degreeId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_degree_id"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/studentName"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/prompt_student_id"
-                android:imeActionId="6"
-                android:imeOptions="actionUnspecified"
-                android:inputType="text"
-                android:maxLines="1"
-                android:singleLine="true"/>
+                android:layout_height="wrap_content">
 
-        </android.support.design.widget.TextInputLayout>
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/studentName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_student_id"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/birthday"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/prompt_birthday"
-                android:imeActionId="6"
-                android:imeOptions="actionUnspecified"
-                android:inputType="date"
-                android:maxLines="1"
-                android:singleLine="true"/>
+                android:layout_height="wrap_content">
 
-        </android.support.design.widget.TextInputLayout>
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/birthday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_birthday"
+                    android:inputType="date"
+                    android:maxLines="1"
+                    android:singleLine="true" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/graduationDate"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/prompt_graduation_date"
-                android:imeActionId="6"
-                android:imeOptions="actionUnspecified"
-                android:inputType="date"
-                android:maxLines="1"
-                android:singleLine="true"/>
+                android:layout_height="wrap_content">
 
-        </android.support.design.widget.TextInputLayout>
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/graduationDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_graduation_date"
+                    android:inputType="date"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
 
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/degreeLabel"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/prompt_degree_label"
-                android:imeActionId="6"
-                android:imeOptions="actionUnspecified"
-                android:inputType="text"
-                android:maxLines="1"
-                android:singleLine="true"/>
+                android:layout_height="wrap_content">
 
-        </android.support.design.widget.TextInputLayout>
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/degreeLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_degree_label"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true" />
 
-        <io.rmiri.buttonloading.ButtonLoading
-            android:id="@+id/verify"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            app:BL_backgroundColor="@android:color/darker_gray"
-            app:BL_circleColor="@color/colorAccent"
-            app:BL_circleColorSecond="@color/colorAccent"
-            app:BL_enable="true"
-            app:BL_stateShow="normal"
-            app:BL_text="@string/action_verify_short"
-            app:BL_textColor="#FFFFFF"
-            app:BL_textSize="14sp" />
+            </android.support.design.widget.TextInputLayout>
 
-    </LinearLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/contractAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/contract_address"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:singleLine="true" />
 
-</android.support.constraint.ConstraintLayout>
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

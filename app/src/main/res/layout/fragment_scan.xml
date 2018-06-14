@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context=".view.activity.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/section_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,20 +30,18 @@
         <android.support.v7.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/camera"/>
+            android:src="@drawable/camera"/>
 
-        <io.rmiri.buttonloading.ButtonLoading
+        <android.support.v7.widget.AppCompatButton
             android:id="@+id/start_scan"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            app:BL_backgroundColor="@android:color/darker_gray"
-            app:BL_circleColor="@color/colorAccent"
-            app:BL_circleColorSecond="@color/colorAccent"
-            app:BL_enable="true"
-            app:BL_stateShow="normal"
-            app:BL_text="@string/action_scan"
-            app:BL_textColor="#FFFFFF"
-            app:BL_textSize="14sp" />
+            android:layout_marginTop="10dp"
+            android:padding="15dp"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:text="@string/action_scan"
+            android:theme="@style/CustomButton"/>
 
     </LinearLayout>
 

@@ -1,25 +1,22 @@
 <resources>
-    <string name="app_name_value">SmartDegree Application</string>
-    <string name="title_activity_main">Smart-degree</string>
+    <string name="smart_application_name">SmartDegree</string>
 
     <string name="prompt_degree_id">Degree id</string>
     <string name="prompt_student_id">Firstname Lastname</string>
     <string name="prompt_degree_label">Degree label</string>
-    <string name="action_scan">Scan QR Code</string>
-    <string name="action_verify_short">Verify</string>
-    <string name="error_field_required">This field is required</string>
     <string name="prompt_graduation_date">Graduation date</string>
     <string name="prompt_birthday">birthday</string>
-    <string name="action_set_ip">Set network ip</string>
+
     <string name="step_scan_fragment_title">Scan degree\'s QRCode</string>
+    <string name="action_scan">Scan QR Code</string>
     <string name="degree_ok">Degree is valid</string>
     <string name="degree_nok">Degree is invalid</string>
     <string name="back">Back</string>
-    <string name="dialog_set_configuration">Configuration</string>
-    <string name="dialog_set_configuration_message">Write the new value</string>
-    <string name="dialog_set_configuration_ok">Validate</string>
-    <string name="dialog_set_configuration_cancel">Cancel</string>
-    <string name="loading_title">Loading</string>
-    <string name="loading_message">Wait while loading</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="prompt_endpoint">Endpoint</string>
+    <string name="loading_message">Loading in progress</string>
+    <string name="contract_address">Contract address</string>
+    <string name="endpoint_saved_message">Endpoint saved</string>
 
 </resources>
